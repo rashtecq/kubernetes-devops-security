@@ -1,4 +1,4 @@
-performance@3.18
+performance@3.20
 docker-workflow@1.26
 dependency-check-jenkins-plugin@5.1.1
 blueocean@1.24.7
