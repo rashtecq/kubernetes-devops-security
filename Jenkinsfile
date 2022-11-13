@@ -22,7 +22,7 @@ pipeline {
       stage('Docker ImageBuild & Push2DockerHub') {
           steps{
             sh 'printenv'
-            sh 'docker build -t rashtecq/numeric-app:""$GIT_COMMIT" .'
+            sh 'docker build -t rashtecq/numeric-app:""$GIT_COMMIT"" .'
             sh 'docker push rashtecq/numeric-app:""$GIT_COMMIT"'
             }
           }
