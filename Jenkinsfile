@@ -44,6 +44,7 @@ pipeline {
       stage('Vulnerability Scan by OWASP - Docker'){
         steps {
             sh "mvn dependency-check:check"
+            sh "bash trivy-docker-image-scan.sh"
         }
         post {
             always {
