@@ -41,7 +41,16 @@ pipeline {
            }
         }
       }
-
+      stage('Vulnerability Scan by OWASP - Docker'){
+        steps {
+            sh "mvn dependency-check:check"
+        }
+        post {
+            always {
+                dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+            }
+        }
+      }
 
       stage('Docker ImageBuild & Push2DockerHub') {
           steps{
