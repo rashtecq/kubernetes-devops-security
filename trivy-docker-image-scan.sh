@@ -5,7 +5,8 @@ docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.34.0 -q image --exit
 docker run --rm -v $WORKSPACE:/root/.cache/ aquasec/trivy:0.34.0 -q image --exit-code 1 --severity CRITICAL --light $dockerImageName
 
 #Trivy scan result result processing
-exit_code=$?
+  exit_code=$?
+  echo "Exit Code: $exit_code"
 
 #check the scan result
   if [["${exit_code}" == 1 ]]; then
