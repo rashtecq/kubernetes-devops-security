@@ -48,8 +48,4 @@ version: ""
 fileignoreconfig:
 - filename: Jenkinsfile
   checksum: 452045b08d1e61e45edd28461fbe02cad1085cd5d10a7a33498ff20a7b7501cc
-version: ""
-
-Talisman done in 41.807223ms
-
 
