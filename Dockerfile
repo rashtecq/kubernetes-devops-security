@@ -1,4 +1,3 @@
-#FROM openjdk:8-jdk-alpine - having alot of vulnerabilities with Critical and High severity
 FROM adoptopenjdk/openjdk8:alpine-slim
 EXPOSE 8080
 ARG JAR_FILE=target/*.jar
