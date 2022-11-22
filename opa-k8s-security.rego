@@ -1,10 +1,10 @@
 package main
 
-deny[msg] {
-    input.kind = "Service"
-    not input.spec.Type = "NodePort"
-    msg = "Service Type should be NodePort"
-}
+#deny[msg] {
+ #   input.kind = "Service"
+  #  not input.spec.Type = "NodePort"
+   # msg = "Service Type should be NodePort"
+#}
 
 deny[msg] {
   input.kind = "Deployment"
