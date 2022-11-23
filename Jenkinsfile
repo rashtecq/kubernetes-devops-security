@@ -112,11 +112,11 @@ pipeline {
           }
         }
       }
-      post {
-        always{
-          publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP ZAP HTML report', reportTitles: 'OWASP ZAP HTML report', useWrapperFileDirectly: true])
+        post {
+          always{
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP ZAP HTML report', reportTitles: 'OWASP ZAP HTML report', useWrapperFileDirectly: true])
+          }
         }
-      }
 
       
   }
