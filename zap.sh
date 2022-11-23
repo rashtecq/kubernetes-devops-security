@@ -1,5 +1,5 @@
 #!/bin/bash
-PORT=$(kubectl -n default get svc ${service_name} -o json | jq .spec.ports[].nodePort)
+PORT=$(kubectl -n default get svc ${serviceName} --output json | jq -r '.spec.ports[].nodePort')
 
 chmod 777 $(pwd)
 echo $(id -u):$(id -g)
