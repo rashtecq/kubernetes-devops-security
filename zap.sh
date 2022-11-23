@@ -1,6 +1,7 @@
 #!/bin/bash
-PORT=$(kubectl -n default get svc ${serviceName} --output json | jq -r '.spec.ports[].nodePort')
-
+#PORT=$(kubectl -n default get svc $serviceName --output json | jq -r '.spec.ports[].nodePort')
+PORT=$(kubectl -n default get svc devsecops-svc --output json | jq -r '.spec.ports[].nodePort')
+echo $PORT
 chmod 777 $(pwd)
 echo $(id -u):$(id -g)
 docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py -t $applicationURL:$PORT/v3/api-docs -f openapi -r zap_report.html
