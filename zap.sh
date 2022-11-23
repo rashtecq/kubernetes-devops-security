@@ -13,7 +13,7 @@ sudo mv zap_report.html owasp-zap-report
 
 
 echo "Exit Code : $exit_code"
-if [[ ${exit_code -ne 0 }]]; then
+if [[ "${exit_code}" -ne 0 ]]; then
     echo "OWASP report has either Low/Medium/High Risk. Please check the HTML report"
     exit 1;
     else
