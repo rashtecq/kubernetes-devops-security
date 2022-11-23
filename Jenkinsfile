@@ -1,5 +1,14 @@
 pipeline {
   agent any
+  environment {
+    deploymentName = "devsecops"
+    containerName = "devsecops-container"
+    serviceName = "devsecops-svc"
+    imageName = "rashtecq/numeric-app:${GIT_COMMIT}"
+    application_URL = "http://devsecops-demo.eastus.cloudapp.azure.com"
+    applicationURI = "/increment/99"
+
+  }
 
   stages {
       stage('Build Artifact') {
@@ -80,6 +89,9 @@ pipeline {
             },
             "Kubesec Scan": {
               sh 'bash kubesec-scan.sh'
+            },
+            "Trivy Scan": {
+              sh 'bash trivy-scan.sh'
             }
 
           )
