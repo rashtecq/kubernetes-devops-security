@@ -105,8 +105,6 @@ pipeline {
           }
         }
       }
-      stage ('OWASP ZAP - DAST') {
-
-      }
+      
   }
  }
