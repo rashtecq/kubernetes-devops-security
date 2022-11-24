@@ -117,6 +117,23 @@ pipeline {
           }
         }
       }
+      stage('K8S CIS Benchmark'){
+        steps{
+          script{
+            parallel(
+              "Master":{
+                sh 'bash cis-master.sh'
+              },
+              "KUBELET":{
+                sh 'bash cis-kubelet.sh'
+              },
+              "ETCD":{
+                sh 'bash cis-etcd.sh'
+              } 
+            )
+          }
+        }
+      }
 
 
       
