@@ -144,6 +144,24 @@ pipeline {
         }
       }
 
+      stage('K8S Deployment - PROD'){
+        steps{
+          parallel(
+            "Deployment":{
+              withKubeConfig([credentialsId: 'kubeconfig']){
+                sh "sed -i 's#replce#${imageName}#g' k8s_PROD-deployment_service.yaml"
+                sh "kubectl apply -f k8s_PROD-deployment_service.yaml -n prod"
+              }
+            },
+            "Rollout Status":{
+              withKubeConfig([credentialsId: 'kubeconfig']){
+                sh 'bash k8s_PROD-deployment_rollout-status.sh'
+              }
+            }
+          )
+        }
+      }
+
 
       
   }
